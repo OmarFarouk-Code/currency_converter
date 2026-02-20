@@ -1,46 +1,126 @@
-# currency_converter
+# 🌍 PyCurrency — Live Currency Converter
 
-# 🌍 PyCurrency Live Converter
+A lightweight, real-time command-line currency converter built in Python. It fetches live exchange rates from the Fixer API, previews the top 10 market rates for your chosen base currency, and performs precise conversions in seconds.
 
-A lightweight, real-time Currency Converter CLI application. This tool allows users to view current market rates for a base currency and perform precise conversions using live data from the Fixer API.
+---
 
 ## ✨ Features
-* **Live Market Preview:** Fetches and displays the top 10 exchange rates for your starting currency.
-* **Real-time Conversion:** Uses the `/convert` endpoint for accurate, up-to-date calculations.
-* **Secure Configuration:** Environment variables (`.env`) are used to protect your API keys.
-* **User-Friendly CLI:** Includes emoji support and clear visual separators for a better terminal experience.
-* **Robust Error Handling:** Validates currency codes, handles non-numeric inputs, and catches API connection issues.
+
+- **Live Market Preview** — Displays the top 10 current exchange rates for your chosen base currency before you convert
+- **Real-Time Conversion** — Uses the Fixer `/convert` endpoint for accurate, up-to-date results
+- **Input Validation** — Validates currency codes against live data, rejects non-numeric amounts, and enforces positive values
+- **Secure Configuration** — API keys are stored in a `.env` file and never hardcoded
+- **Repeat Conversions** — Prompts the user to run another conversion without restarting the program
+- **Friendly CLI** — Clear visual separators and emoji indicators for a polished terminal experience
+
+---
 
 ## 🛠️ Tech Stack
-* **Language:** Python 3.x
-* **Libraries:** `requests`, `python-dotenv`
-* **API:** [Fixer API](https://fixer.io/)
+
+| Component | Technology |
+|---|---|
+| Language | Python 3.x |
+| HTTP Requests | `requests` |
+| Environment Variables | `python-dotenv` |
+| Exchange Rate Data | [Fixer API via APILayer](https://apilayer.com/marketplace/fixer-api) |
+
+---
 
 ## 🚀 Getting Started
 
-### 1. Prerequisites
-You will need a free API key from [APILayer/Fixer](https://apilayer.com/marketplace/fixer-api).
+### 1. Clone the Repository
 
-### 2. Installation
-```Clone the repository:
+```bash
+git clone https://github.com/your-username/currency-converter.git
+cd currency-converter
+```
 
-bash
-git clone [https://github.com/yourusername/currency-converter.git](https://github.com/yourusername/currency-converter.git)
-cd currency-converter```
+### 2. Install Dependencies
 
-Install dependencies:
-
-```bash```
+```bash
 pip install requests python-dotenv
+```
 
-```3. Configuration```
-Create a .env file in the root directory and add your API key:
+### 3. Get an API Key
 
-```Code snippet```
+Sign up for a free API key at [APILayer — Fixer API](https://apilayer.com/marketplace/fixer-api).
+
+### 4. Configure Environment Variables
+
+Create a `.env` file in the project root directory:
+
+```
 API_KEY=your_actual_api_key_here
+```
 
-```4. Usage```
-Run the script:
+> ⚠️ Never commit your `.env` file to version control. Add it to `.gitignore`.
 
-```Bash```
-python currency_converter_chatgpt.py
+### 5. Run the Application
+
+```bash
+python currency_converter_enhanced.py
+```
+
+---
+
+## 💻 Example Session
+
+```
+==============================
+ 🌍  CURRENCY CONVERTER LIVE
+==============================
+ 🛫  From (e.g. USD): USD
+
+ 📈  Current Rates for 1 USD:
+------------------------------
+  💰 EUR : 0.92
+  💰 GBP : 0.79
+  💰 JPY : 149.50
+  💰 CAD : 1.36
+  ... and more available!
+
+------------------------------
+ 🛬  To (e.g. EUR): EGP
+ 💵  Amount to convert: 100
+
+✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
+  ✅  100.0 USD = 4875.00 EGP
+✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
+
+——————————————————————————————
+ 🔄  Convert another? (y/n):
+```
+
+---
+
+## 📁 Project Structure
+
+```
+currency-converter/
+├── currency_converter_enhanced.py   # Main application file
+├── requirements.txt                 # Python dependencies
+├── .env                             # API key (not committed to git)
+├── .gitignore
+└── README.md
+```
+
+---
+
+## ⚠️ Known Limitations & Potential Improvements
+
+- **Free tier rate limits** — The free Fixer plan has monthly request limits and may not support all base currencies (EUR only on some tiers)
+- **No offline mode** — The app requires an active internet connection and will fail gracefully if unavailable
+- **CLI only** — A GUI or web frontend could make the tool more accessible to non-technical users
+- **No conversion history** — Past conversions are not saved between sessions
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this project and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## 👤 Author
+
+Developed by **Omar Farouk**
